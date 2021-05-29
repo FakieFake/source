@@ -1,8 +1,7 @@
-
 --Variables
 local tele1 = script.Parent.Tele1
 local tele2 = script.Parent.Tele2
-local debounce = 0 -- set to 0 as "default" 
+local debounce = 0 -- set to 0 as "default"
 local cooldown = 3
 
 --Functions
