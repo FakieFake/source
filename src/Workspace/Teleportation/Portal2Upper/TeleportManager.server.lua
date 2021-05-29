@@ -1,4 +1,3 @@
-
 --Variables
 local tele1 = script.Parent.Tele1
 local tele2 = script.Parent.Tele2
