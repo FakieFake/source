@@ -1,7 +1,7 @@
 --[[
-    Made by Fakie aka HammyLammyYT
+    MADE BY FAKIE (ALSO KNOWN AS HAMMYLAMMYYT ON ROBLOX)
 ]]
 
 return {
-    script.HexagonHoneyComb
+	HexagonHoneyComb = require(script.HexagonHoneyComb),
 }
