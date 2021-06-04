@@ -16,7 +16,7 @@ function HexagonHoneyComb.RandomizeInstantFall(hexagons)
 	if not hexagons or #hexagons:GetChildren() == 0 then
 		error("'hexagon' value must be an instance containing objects.")
 	end
-	
+
 	math.randomseed(os.time())
 	for _, hexagon in ipairs(hexagons:GetChildren()) do -- ipairs is faster by 0.0000008s so we'll use ipairs
 		if math.random(1, chance) == 1 and not hexagon:GetAttribute("InstantFall") then
@@ -37,7 +37,7 @@ function HexagonHoneyComb.AddLogic(hexagons, onceTouched, connections)
 	if not connections and not typeof(connections) == "table" and #connections >= 0 then
 		error("'connections' value must be a table containing NO values.")
 	end
-	
+
 	for _, player in ipairs(game:GetService("Players"):GetPlayers()) do
 		if player.IsInGame.Value == false then
 			return
@@ -50,17 +50,17 @@ function HexagonHoneyComb.AddLogic(hexagons, onceTouched, connections)
 
 			local char = player.Character or player.CharacterAdded:Wait()
 			local origin = char:WaitForChild("HumanoidRootPart").CFrame
-			
+
 			local raycastParams = RaycastParams.new()
 			raycastParams.FilterType = Enum.RaycastFilterType.Whitelist
 			raycastParams.FilterDescendantsInstances = {hexagons}
-			
+
 			-- BodyScale values to adjust to a player's character
 			local BodyWidthScale = char.Humanoid.BodyWidthScale.Value
 			local BodyHeightScale = char.Humanoid.BodyHeightScale.Value
 			local BodyTypeScale = char.Humanoid.BodyTypeScale.Value + 0.75
 			local BodyDepthScale = char.Humanoid.BodyDepthScale.Value
-			
+
 			-- Fires a ray to detect if hexagon was hit
 			local raycastResults1 = workspace:Raycast(origin.Position + Vector3.new(0, 1 * BodyHeightScale * BodyTypeScale, 0), Vector3.new(0, -4 * BodyHeightScale * BodyTypeScale, 0), raycastParams) -- middle
 			local raycastResults2 = workspace:Raycast((origin * CFrame.new(-1.5 * BodyWidthScale, 1 * BodyHeightScale * BodyTypeScale, 0)).Position, Vector3.new(0, -4 * BodyHeightScale * BodyTypeScale, 0), raycastParams) -- left
